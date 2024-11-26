@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoArea{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.board-container {
+    grid-template-columns: repeat(19, 30px);
+    grid-template-rows: repeat(19, 30px);
+    gap: 2px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.cell.x {
+    background-color: black;
+}
+
+.cell.o {
+    background-color:red;
+    background:radial-gradient(circle, #fff 100%, transparent 100%); /* 둥근 원 */
+    background-size: 100% 100%, 50% 50%; /* 사각형 크기, 원 크기 */
+    background-position: center; /* 원을 가운데 배치 */
+    background-repeat: no-repeat;
+}
+
+
+/* btn */
+.endGameBtn{
+    display: none;
+}

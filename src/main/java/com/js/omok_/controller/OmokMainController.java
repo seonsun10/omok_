@@ -10,4 +10,9 @@ public class OmokMainController {
     public String main(){
         return "omokMain";
     }
+
+    @RequestMapping("/gameMain")
+    public String gameMain(){
+        return "gameMain";
+    }
 }
