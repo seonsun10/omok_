@@ -8,10 +8,15 @@ $(document).ready(function() {
         const player1Name = $('#player1').val();
         const player2Name = $('#player2').val();
 
+        const player1Color = 'black';
+        const player2Color = 'white';
+
         // 플레이어 DTO 객체 생성
         const players = [
-            { name: player1Name },
-            { name: player2Name }
+            { name: player1Name ,
+              stoneColor: player1Color },
+            { name: player2Name ,
+              stoneColor: player2Color }
         ];
 
         // AJAX 요청
@@ -37,7 +42,7 @@ $(document).ready(function() {
     });
 
     // 셀 클릭 시 돌 놓기 --전체적으로 수정해야함
-    $('.cell').click(function() {
+    $('#board').on('click', '.cell', function() {
         if (gameOver) return; // 게임이 종료되었으면 클릭하지 못함
 
         const x = $(this).data('x');
@@ -83,15 +88,14 @@ function createBoard(boardState){
     let $board = $("#board");
     $board.empty(); // 보드 초기화
 
-    if(boardState.length > 0){
-        boardState.forEach(function(data){
-            var $row = $("<div class='row'></div>");
-            data.forEach(function(cell){
-                var $cell = $("<div class='cell' data-x='' data-y=''></div>");
-                $row.append($cell);
-            });
-            $board.append($row);
+    // 보드 상태를 기반으로 동적 생성
+    boardState.forEach(function(row, x) { // 행 반복 (x 값)
+        var $row = $("<div class='row'></div>");
+        row.forEach(function(cell, y) { // 열 반복 (y 값)
+            // 각 셀에 x, y 속성 추가
+            var $cell = $(`<div class='cell' data-x='${x}' data-y='${y}'></div>`);
+            $row.append($cell);
         });
-    }
-
+        $board.append($row);
+    });
 }
