@@ -34,12 +34,17 @@ body {
 }
 
 .cell.x {
-    background-color: black;
+    /*background-color: black;*/
+    background-image: url("../img/Go_w_no_bg.png");
+    background-size: 100% 100%, 50% 50%; /* 사각형 크기, 원 크기 */
+    background-position: center; /* 원을 가운데 배치 */
+    background-repeat: no-repeat;
 }
 
 .cell.o {
-    background-color:red;
-    background:radial-gradient(circle, #fff 100%, transparent 100%); /* 둥근 원 */
+    /*background-color:red;*/
+    /*background:radial-gradient(circle, red 100%, transparent 100%); !* 둥근 원 *!*/
+    background-image: url("../img/Go_b_no_bg.png");
     background-size: 100% 100%, 50% 50%; /* 사각형 크기, 원 크기 */
     background-position: center; /* 원을 가운데 배치 */
     background-repeat: no-repeat;
